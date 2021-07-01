@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'Main_OBS/css/style.css' %}"/>
+    <script src="{% static 'Main_OBS/js/scripts.js' %}" charset="utf-8"></script>
+</head>
+<body>
+  {% block content %}
+  <h1 class="head_h1">{{text_head}}</h1>
+
+  <div class="left_load">
+    <h2>Load file for OBS</h2>
+    <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form_widget.as_p }}
+      <button class="main_button" type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="right_info">
+    <h2>Choose file</h2>
+    <div id="List_Files">
+    {% for i in files %}
+      <div class="list_button">
+        <button id="{{ forloop.counter }}" type="button" name="button" onclick="Widget(this)">{{ i.name }}</button></br>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+
+{% endblock %}
+</body>
+</html>
