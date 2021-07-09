@@ -4,33 +4,58 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+    <link rel="shortcut icon" href="{% static 'Main_OBS/files/foxford.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'Main_OBS/css/style.css' %}"/>
     <script src="{% static 'Main_OBS/js/scripts.js' %}" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" charset="utf-8"></script>
 </head>
 <body>
-  {% block content %}
   <h1 class="head_h1">{{text_head}}</h1>
+<div class="Global_Page">
 
-  <div class="left_load">
-    <h2>Load file for OBS</h2>
+  <div class="left">
+    <div class="left_panel">
+    <h2 id="admin_board">Загрузить файл для ОБС</h2>
     <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form_widget.as_p }}
-      <button class="main_button" type="submit">Add</button>
+      <p class="url-name">URL должен иметь такое же название, как и Name</p>
+      <button class="main_button" type="submit">Добавить</button>
     </form>
-  </div>
-
-  <div class="right_info">
-    <h2>Choose file</h2>
-    <div id="List_Files">
-    {% for i in files %}
-      <div class="list_button">
-        <button id="{{ forloop.counter }}" type="button" name="button" onclick="Widget(this)">{{ i.name }}</button></br>
-      </div>
-    {% endfor %}
     </div>
   </div>
 
-{% endblock %}
+
+  <div class="middle">
+    <div class="middle_panel">
+    <h2 id="admin_board">Редактировать виджет</h2>
+    <form name="edit_widget" method="post" enctype="multipart/form-data" action="{% url 'edit_widget' %}">
+    {% csrf_token %}
+    <label class="info">Name</label>
+    <input name="name" type="text" size="40">
+    <label class="info">Title</label>
+    <input name="title" type="text" size="40">
+    <label class="info">Subtitle</label>
+    <input name="subtitle" type="text" size="40">
+    <p><input type="submit" value="Изменить"></p>
+    </form>
+    </div>
+  </div>
+
+
+  <div class="right">
+    <div class="right_panel">
+    <h2 id="admin_board">Список файлов</h2>
+      <select id="list_select" multiple>
+        {% for i in files %}
+            <option id="{{ forloop.counter }}" onmouseover="Show_Info(this)">{{ i.name }}</option>
+        {% endfor %}
+      </select>
+    <button class="button_right" type="button" onclick="Open_Widget()">Открыть</button>
+    <button class="button_right" type="button" onclick="Show_Hide_Widget()">Скрыть/Показать</button>
+    <button class="button_right" type="button" onclick="Delete()">Удалить</button>
+  </div>
+  </div>
+</div>
 </body>
 </html>

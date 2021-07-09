@@ -1,12 +1,94 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'Main_OBS/css/style.css' %}"/>
+    <link rel="shortcut icon" href="{% static 'Main_OBS/files/foxford.png' %}" type="image/x-icon">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+    @font-face {
+        font-family: "Circe Bold";
+        src: url("https://a.foxford.ngcdn.ru/assets/webpack/fonts/circe_bold.woff2") format("woff2");}
+    @font-face {
+        font-family: "Circe";
+        src: url("https://a.foxford.ngcdn.ru/assets/webpack/fonts/circe_regular.woff2") format("woff2");}
+    body {
+        font-family: "Circe", sans-serif;}
+    video {
+      z-index: 1;}
+    .titles.shown {
+        opacity: 1;
+        animation: t 2s;}
+    .titles {
+        position: absolute;
+        top: 95px;
+        left: 198px;
+        color: white;
+        max-width: 650px;
+        opacity: 0;}
+    .titles .title {
+        font-family: "Circe Bold", sans-serif;
+        font-size: 48px;
+        margin: 0;}
+    .titles .subtitle {
+        font-size: 32px;
+        margin: -10px 0;}
+    @keyframes t {
+        0%   { opacity: 0; }
+        50%   { opacity: 0; }
+        100% { opacity: 1; }}
+    </style>
+    <script>
+    function Show() {
+      document.querySelector("#video").play()
+      document.querySelector("#video").style.opacity = "1"
+      document.querySelector(".titles").classList.add("shown")
+
+    };
+    function Hide() {
+      document.querySelector("body").animate([{ opacity: 0, easing: 'ease-out' }], 500).onfinish = function() {
+          document.querySelector("#video").pause()
+          document.querySelector("#video").currentTime = 0
+          document.querySelector(".titles").classList.remove("shown")
+          document.querySelector("#video").style.opacity = "0"
+          document.querySelector("body").style.opacity = "1"
+      }
+      document.querySelector(".titles").classList.add("shown")
+    };
+    </script>
 </head>
 <body>
-  <video id="widget" preload="auto" autoplay="true" muted="muted">
+  <video id="video" muted="muted" preload="auto" autoplay="true" playsinline>
     <source src="{{ info.url }}">
   </video>
+  <div class="titles">
+      <h1 class="title" id="title">{{ title }}</h1>
+      <h2 class="subtitle" id="subtitle">{{ subtitle }}</h2>
+  </div>
+  <script type="text/javascript">
+    let status = true;
+    setInterval(function () {
+      let name = "{{ slug }}";
+      let xhr = new XMLHttpRequest();
+      xhr.open("GET", "http://127.0.0.1:8000/check_status/"+name);
+      xhr.responseType = 'json';
+      xhr.send();
+      xhr.onload = function () {
+        if (xhr.response["status"]==true && status==false) {
+          console.log(xhr.response["status"],status)
+          status = true;
+          Show();
+        }
+        else if (xhr.response["status"]==false && status==true) {
+          console.log(xhr.response["status"],status)
+          status = false;
+          Hide();
+        }
+      };
+    },500);
+  </script>
+  </div>
 </body>
 </html>
