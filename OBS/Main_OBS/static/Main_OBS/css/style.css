@@ -1,3 +1,11 @@
+.Global_Page {
+  display: table;
+  width: 100%;
+  height: 100%;
+}
+
+
+
 h1.head_h1 {
   text-align: center;
   border-radius: 15px;
@@ -7,7 +15,8 @@ h1.head_h1 {
   margin-bottom: 50px;
 }
 
-h2 {
+
+h2#admin_board {
   width: 250px;
   text-align: center;
   font-family: Tahoma;
@@ -27,7 +36,23 @@ p {
 }
 
 
-div.left_load {
+p.url-name {
+  color: red;
+  font-variant: small-caps;
+  font-size: 15px;
+}
+
+p.info {
+  font-variant: normal;
+  font-size: 15px;
+  padding: 0px;
+}
+
+label.info {
+  margin: 0px;
+  padding: 0px;
+}
+/* div.left_load {
   position: absolute;
   left: 0;
   padding: 6px;
@@ -40,18 +65,35 @@ div.right_info {
   right: 0;
   padding: 5px;
   padding-right: 20px;
+} */
+
+
+.left {
+  display: table-cell;
+  width: 350px;
 }
 
 
-div #List_Files {
-  height: 400px;
-  width: 300px;
-  overflow: auto;
-  border-width:1;
-  border-color: black;
-  border-style: solid;
-  border-radius: 5px;
+.right {
+  display: table-cell;
+  width: 320px;
 }
+
+/* .left_panel, .right_panel {
+  display: inline-block;
+} */
+
+
+.middle {
+  display: table-cell;
+}
+
+
+.middle_panel {
+  width: 320px;
+  margin: 0 auto;
+}
+
 
 button.main_button {
   background-color: #8A2BE2;
@@ -70,8 +112,47 @@ button.main_button:hover {
   background-color: #8B008B
 }
 
-button.list_button {
-  font-size: 15px;
+
+button.button_right {
+  background-color: #8A2BE2;
+  border: none;
+  color: white;
   padding: 5px;
-  margin: 2px;
+  margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+
+button.button_right:hover {
+  background-color: #8B008B
+}
+
+
+select {
+   width: 300px;
+   height: 300px;
+   display: block;
+   overflow: auto;
+   padding-left: 10px;/* отступы от текста до рамки */
+   padding-top: 10px;
+   padding-bottom: 10px;
+   padding-right: 10px;
+   background: none; /* убираем фон */
+   border: 4px solid black; /* рамка */
+   border-radius: 3px;/* скругление полей формы */
+   -webkit-appearance: none;/* Chrome */
+   -moz-appearance: none;/* Firefox */
+   font-size: 15px;
+}
+
+
+option {
+  background-color: grey;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 5px;
 }
