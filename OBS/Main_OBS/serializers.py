@@ -8,7 +8,6 @@ class StatusWidget(serializers.ModelSerializer):
         fields = ("status",)
 
 
-
 class AboutWidget(serializers.ModelSerializer):
     class Meta:
         model = OBS_Model
