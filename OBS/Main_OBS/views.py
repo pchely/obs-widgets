@@ -72,8 +72,3 @@ class ShowInfo(APIView):
         database = OBS_Model.objects.get(slug=name_slug)
         serializer = AboutWidget(database)
         return Response(serializer.data)
-
-
-
-
-
