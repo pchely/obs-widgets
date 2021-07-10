@@ -1,0 +1,13 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+        <link rel="shortcut icon" href="{% static 'Main_OBS/files/foxford.png' %}" type="image/x-icon">
+    <title>ОК</title>
+  </head>
+  <body>
+    <h3>Информация виджета {{ name_widget }} успешно обновлена!</h3>
+    <a href="{% url 'home' %}">Вернуться на главную страницу</a>
+  </body>
+</html>
