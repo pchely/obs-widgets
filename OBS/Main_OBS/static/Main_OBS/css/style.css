@@ -7,30 +7,33 @@
 
 
 h1.head_h1 {
+  font-family: fantasy;
+  font-variant: inherit;
   text-align: center;
   border-radius: 15px;
   border: 5px black;
   background: #f0f0f0;
-  padding: 20px;
-  margin-bottom: 50px;
+  padding: 15px;
+  margin-bottom: 30px;
 }
 
 
 h2#admin_board {
   width: 250px;
   text-align: center;
-  font-family: Tahoma;
+  font-family: comic sans ms;
   border-radius: 15px;
   background-color: green;
 }
 
 
+
 p {
-  font-family: Tahoma;
+  font-family: comic sans ms;
   color: black;
   font-weight: 700;
   font-variant : small-caps;
-  font-size : 18px;
+  font-size : 16px;
   padding: 5px;
 
 }
@@ -49,23 +52,15 @@ p.info {
 }
 
 label.info {
+  font-family: comic sans ms;
+  color: black;
+  font-weight: 700;
+  font-variant : small-caps;
+  font-size : 16px;
   margin: 0px;
   padding: 0px;
 }
-/* div.left_load {
-  position: absolute;
-  left: 0;
-  padding: 6px;
-  padding-left: 20px;
-}
 
-
-div.right_info {
-  position: absolute;
-  right: 0;
-  padding: 5px;
-  padding-right: 20px;
-} */
 
 
 .left {
@@ -78,10 +73,6 @@ div.right_info {
   display: table-cell;
   width: 320px;
 }
-
-/* .left_panel, .right_panel {
-  display: inline-block;
-} */
 
 
 .middle {
@@ -113,7 +104,7 @@ button.main_button:hover {
 }
 
 
-button.button_right {
+input.info_submit, button.button_right {
   background-color: #8A2BE2;
   border: none;
   color: white;
@@ -127,7 +118,7 @@ button.button_right {
 }
 
 
-button.button_right:hover {
+input.info_submit:hover, button.button_right:hover {
   background-color: #8B008B
 }
 
