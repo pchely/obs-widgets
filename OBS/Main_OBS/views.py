@@ -50,14 +50,15 @@ def edit_status(request, name_slug):
 
 
 def edit_widget(request):
+    name_widget = request.POST.get("name")
     try:
-        name_widget = request.POST.get("name")
+        OBS_Model.objects.get(name=name_widget)
         title_widget = request.POST.get("title")
         subtitle_widget = request.POST.get("subtitle")
         OBS_Model.objects.filter(name=name_widget).update(title=title_widget,subtitle=subtitle_widget)
-        return HttpResponse(status=200)
+        return render(request, "Main_OBS/200_ok.html", {"name_widget":name_widget}, status=200)
     except:
-        return HttpResponse(status=400)
+        return render(request, "Main_OBS/400_error.html", {"name_widget":name_widget}, status=400)
 
 
 class CheckStatus(APIView):
