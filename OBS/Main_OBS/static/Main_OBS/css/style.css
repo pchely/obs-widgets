@@ -5,7 +5,6 @@
 }
 
 
-
 h1.head_h1 {
   font-family: fantasy;
   font-variant: inherit;
@@ -27,7 +26,6 @@ h2#admin_board {
 }
 
 
-
 p {
   font-family: comic sans ms;
   color: black;
@@ -45,11 +43,13 @@ p.url-name {
   font-size: 15px;
 }
 
+
 p.info {
   font-variant: normal;
   font-size: 15px;
   padding: 0px;
 }
+
 
 label.info {
   font-family: comic sans ms;
@@ -60,7 +60,6 @@ label.info {
   margin: 0px;
   padding: 0px;
 }
-
 
 
 .left {
