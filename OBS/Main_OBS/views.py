@@ -22,7 +22,6 @@ def admin_board(request):
                    "form_widget":form, "files":database})
 
 
-
 def open_widget(request, name_slug):
     database = OBS_Model.objects.get(slug=name_slug)
     OBS_Model.objects.filter(slug=name_slug).update(status=True)
