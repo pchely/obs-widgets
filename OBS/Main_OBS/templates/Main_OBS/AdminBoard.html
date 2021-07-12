@@ -19,7 +19,7 @@
     <form action="{% url 'home' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {{ form_widget.as_p }}
-      <p class="url-name">URL должен иметь такое же название, как и Name</p>
+      <!-- <p class="url-name">URL должен иметь такое же название, как и Name</p> -->
       <button class="main_button" type="submit">Добавить</button>
     </form>
     </div>
@@ -48,7 +48,7 @@
     <h2 id="admin_board">Список файлов</h2>
       <select id="list_select" multiple>
         {% for i in files %}
-            <option id="{{ forloop.counter }}" onmouseover="Show_Info(this)">{{ i.name }}</option>
+            <option id="{{ forloop.counter }}" onmouseover="Show_Info(this)">{{ i.slug }}</option>
         {% endfor %}
       </select>
     <button class="button_right" type="button" onclick="Open_Widget()">Открыть</button>

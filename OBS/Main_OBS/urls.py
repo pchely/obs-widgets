@@ -8,5 +8,5 @@ urlpatterns = [
     path('check_status/<slug:name_slug>/', views.CheckStatus.as_view(), name="showhide"),
     path('delete/<slug:slug_file>/', views.delete_widget, name="delete"),
     path('widget/<slug:name_slug>/', views.open_widget, name="widget"),
-    path('admin_board/', views.admin_board, name="home")
+    path('', views.admin_board, name="home")
 ]
