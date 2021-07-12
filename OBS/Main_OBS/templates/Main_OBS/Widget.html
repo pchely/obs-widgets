@@ -17,7 +17,8 @@
     body {
         font-family: "Circe", sans-serif;}
     video {
-      z-index: 1;}
+      z-index: 1;
+      opacity: 0;}
     .titles.shown {
         opacity: 1;
         animation: t 2s;}
@@ -42,18 +43,20 @@
     </style>
     <script>
     function Show() {
-      document.querySelector("#video").play()
-      document.querySelector("#video").style.opacity = "1"
-      document.querySelector(".titles").classList.add("shown")
+      document.querySelector("#video").currentTime = 0;
+      document.querySelector("#video").play();
+      document.querySelector("#video").style.opacity = 1;
+      document.querySelector("body").style.opacity = 1;
+      document.querySelector(".titles").classList.add("shown");
 
     };
     function Hide() {
       document.querySelector("body").animate([{ opacity: 0, easing: 'ease-out' }], 500).onfinish = function() {
-          document.querySelector("#video").pause()
-          document.querySelector("#video").currentTime = 0
-          document.querySelector(".titles").classList.remove("shown")
-          document.querySelector("#video").style.opacity = "0"
-          document.querySelector("body").style.opacity = "1"
+          document.querySelector("#video").pause();
+          document.querySelector("#video").currentTime = 0;
+          document.querySelector(".titles").classList.remove("shown");
+          document.querySelector("#video").style.opacity = 0;
+          document.querySelector("body").style.opacity = 1;
       }
       document.querySelector(".titles").classList.add("shown")
     };
@@ -64,11 +67,11 @@
     <source src="{{ info.url }}">
   </video>
   <div class="titles">
-      <h1 class="title" id="title">{{ title }}</h1>
-      <h2 class="subtitle" id="subtitle">{{ subtitle }}</h2>
+      <h1 class="title" id="title"></h1>
+      <h2 class="subtitle" id="subtitle"></h2>
   </div>
   <script type="text/javascript">
-    let status = true;
+    let status = false;
     setInterval(function () {
       let name = "{{ slug }}";
       let xhr = new XMLHttpRequest();
@@ -76,12 +79,14 @@
       xhr.responseType = 'json';
       xhr.send();
       xhr.onload = function () {
-        if (xhr.response["status"]==true && status==false) {
+        $(".title").html(xhr.response["title"])
+        $(".subtitle").html(xhr.response["subtitle"])
+        if (xhr.response["status"]==false && status==false) {
           console.log(xhr.response["status"],status)
           status = true;
           Show();
         }
-        else if (xhr.response["status"]==false && status==true) {
+        else if (xhr.response["status"]==true && status==true) {
           console.log(xhr.response["status"],status)
           status = false;
           Hide();
@@ -89,6 +94,5 @@
       };
     },500);
   </script>
-  </div>
 </body>
 </html>
