@@ -5,7 +5,7 @@ from .models import OBS_Model
 class StatusWidget(serializers.ModelSerializer):
     class Meta:
         model = OBS_Model
-        fields = ("status",)
+        fields = ("status","title","subtitle")
 
 
 class AboutWidget(serializers.ModelSerializer):
