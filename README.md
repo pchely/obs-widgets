@@ -1,6 +1,6 @@
 # obs-widgets
 
-#Установка
+# Установка
 1) Windows
    
    ```Скачать: https://github.com/pchely/obs-widgets-builders/tree/master/dist```
