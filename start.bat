@@ -1,4 +1,6 @@
-python -m venv venv>>log.txt
-CALL .\venv\Scripts\activate.bat>>log.txt
-python pip install -r requirements.txt>>log.txt
-echo -n makemigrations migrate | xargs -n 1 -d " " python manage.py>>log.txt
+python -m venv venv
+CALL .\venv\Scripts\activate.bat
+pip install -r requirements.txt
+python OBS\manage.py makemigrations
+python OBS\manage.py migrate
+python OBS\manage.py runserver
