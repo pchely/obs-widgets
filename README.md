@@ -5,7 +5,7 @@
    
    ```Скачать: https://github.com/pchely/obs-widgets-builders/blob/master/dist/builder_windows.exe в отдельную папку```
    
-   ```Запустить файл builder_windows.exe```
+   ```Запустить файл builder_windows.exe от имени администратора```
    
 
 
