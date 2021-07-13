@@ -1,13 +1,2 @@
 # obs-widgets
-Приложение с помощью которого можно создавать виджеты для ОБС
-
-# Установка и конфигурация
-1) Необходимо склонировать данный репозиторий на пк и создать venv:
-```
-python3 -m venv /yourproject/venv
-```
-2) Установить библиотеки, исходя из содержимого файла requirements.txt:
-```
-pip install -r requirements.txt
-```
-3) Запустить start.bat для запуска сервера Django
+Builder Windows/MacOS
