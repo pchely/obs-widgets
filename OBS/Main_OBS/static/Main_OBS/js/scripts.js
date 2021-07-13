@@ -28,8 +28,6 @@ function Show_Info(obj) {
   xhr.responseType = 'json';
   xhr.send();
   xhr.onload = function () {
-    console.log("Widget:", name);
-    console.log("Title:", xhr.response.title);
-    console.log("Subtitle:", xhr.response.subtitle)
+    console.log({"Widget":name, "Status":xhr.response.status ,"Title":xhr.response.title,"Subtitle":xhr.response.subtitle});
   }
 };

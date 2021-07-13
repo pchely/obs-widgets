@@ -70,5 +70,5 @@ class CheckStatus(APIView):
 class ShowInfo(APIView):
     def get(self, request, name_slug):
         database = OBS_Model.objects.get(slug=name_slug)
-        serializer = AboutWidget(database)
+        serializer = StatusWidget(database)
         return Response(serializer.data)
