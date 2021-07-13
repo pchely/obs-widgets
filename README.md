@@ -3,7 +3,7 @@
 # Установка
 1) Windows
    
-   ```Скачать: https://github.com/pchely/obs-widgets-builders/tree/master/dist```
+   ```Скачать: https://github.com/pchely/obs-widgets-builders/blob/master/dist/builder_windows.exe```
    
    ```Запустить файл builder_windows.exe```
    
