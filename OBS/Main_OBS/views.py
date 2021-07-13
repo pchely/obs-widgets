@@ -29,8 +29,6 @@ def open_widget(request, name_slug):
                    {"title":"Виджет ОБС",
                     "info":database.file,
                     "slug":database.slug})
-                    # "title":database.title,
-                    # "subtitle":database.subtitle})
 
 
 def delete_widget(request, slug_file):
